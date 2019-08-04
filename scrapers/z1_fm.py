@@ -104,7 +104,7 @@ def download_mp3(download_url, s, path_filename):
         f.write(song_request_response.content)
 
 
-def run(search_entry):
+def run(search_entry, random_song_idx=0):
     """
     Run z1.fm scaper to retrieve a song given by search_sting
     Args:
@@ -131,7 +131,6 @@ def run(search_entry):
     songs_info = parse_songs_info(soup_songs_list, n=5)
 
     # Choose a song and download it
-    random_song_idx = 3
     song_id = list(songs_info.keys())[random_song_idx]
     download_route = songs_info[song_id]["download_route"]
     path = "./"
@@ -147,4 +146,5 @@ if __name__ == "__main__":
     # Testing
     search_entry_monethochka = "/монеточка"
     search_entry_BIG = "/biggie+smalls"
-    run(search_entry_BIG)
+    search_entry_Frank = "/Frank"
+    run(search_entry_Frank)
