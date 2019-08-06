@@ -2,6 +2,8 @@
 
 ## MySQL:
 
+### Sign Up
+
   - Used to store info about users and songs, and stuff.
 
   Steps to make it work:
@@ -9,7 +11,11 @@
   1) Install MySQL on the 'server'. Set up a user 'mapi' and give it all the permissions.
 
      **  MySQL's user name and password to login: mapi and mapi
+     ** To log in:
 
+```
+mysql -u mapi -p
+```
 
   2) Create a table with users' credentials.
 
@@ -62,5 +68,23 @@ BEGIN
 END$$
 DELIMITER ;
 ```
+  ** code explanation: we need the DELIMITER for SQL syntex. We want SQL to to see the whole code as one 'function' to execute on the call.
+     And not just the first part which end with ; (semi-column)
 
    4) Call the MySQL Stored Procedure once we have the user credentials in the `signUp` method.
+
+
+### Sign In
+
+  1) Create a stored procedure to retrieve and check the credentials
+
+```
+DELIMITER $$
+CREATE PROCEDURE `sp_validateLogin`(
+IN p_username VARCHAR(20)
+)
+BEGIN
+    select * from tbl_user where user_username = p_username;
+END$$
+DELIMITER ;
+```
