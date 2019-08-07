@@ -88,3 +88,75 @@ BEGIN
 END$$
 DELIMITER ;
 ```
+
+
+### Create a functionality to add a wish (later could be a song or film)
+
+  1) Create a table in Muzapi, where the data is going to be stored
+
+```
+CREATE TABLE `tbl_wish` (
+  `wish_id` int(11) NOT NULL AUTO_INCREMENT,
+  `wish_title` varchar(45) DEFAULT NULL,
+  `wish_description` varchar(5000) DEFAULT NULL,
+  `wish_user_id` int(11) DEFAULT NULL,
+  `wish_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`wish_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+```
+
+  2) Create a stored procedure which will put entered data to the table.
+
+  ** why if exists?
+
+```
+USE `Muzapi`;
+DROP procedure IF EXISTS `Muzapi`.`sp_addWish`;
+
+DELIMITER $$
+USE `Muzapi`$$
+CREATE PROCEDURE `sp_addWish`(
+    IN p_title varchar(45),
+    IN p_description varchar(1000),
+    IN p_user_id bigint
+)
+BEGIN
+    insert into tbl_wish(
+        wish_title,
+        wish_description,
+        wish_user_id,
+        wish_date
+    )
+    values
+    (
+        p_title,
+        p_description,
+        p_user_id,
+        NOW()
+    );
+END$$
+
+DELIMITER ;
+;
+```
+
+  3) Display a List Item from tbl_wish.
+
+  ** Stored procedure which will get the wishes created by a user. It will take the user
+      ID as a parameter and return a data set of wishes created by the particular user ID
+
+```
+USE `Muzapi` ;
+DROP procedure IF EXISTS `sp_GetWishByUser`;
+
+DELIMITER $$
+USE `Muzapi` $$
+CREATE PROCEDURE `sp_GetWishByUser` ( IN p_user_id bigint )
+BEGIN
+  SELECT * FROM tbl_wish WHERE wish_user_id = p_user_id ;
+END$$
+
+DELIMITER ;
+```
+
+  4)

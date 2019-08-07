@@ -37,3 +37,54 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+
+/*h4:first-child{*/
+/*    padding-bottom: 50px;*/
+/*}*/
+/*div {*/
+/*border-radius:5px;*/
+/*}*/
+/*p {*/
+/*font-family:arial;*/
+/*font-size:14px;*/
+/*margin-left:5px;*/
+/*Margin-bottom:1px;*/
+/*}*/
+/*h4 {*/
+/*font-weight:Bold;*/
+/*font-family:arial;*/
+/*margin-left:50px;*/
+/*Margin-bottom:15px;*/
+/*}*/
+
+/*.jumbotron {*/
+/*padding: 10em;*/
+/*margin: 100;*/
+/*}*/
+/*.jumbotron {*/
+/*  !*clear:left;*!*/
+/*  height:25px;*/
+/*  margin-top:20px;*/
+/*  margin-right:20px;*/
+/*  margin-bottom:2px;*/
+/*  margin-left:20px;*/
+/* }*/
+
+/*.list-group-item-heading {*/
+/*  !*clear:left;*!*/
+/*  height:25px;*/
+/*  margin-top:20px;*/
+/*  margin-right:20px;*/
+/*  margin-bottom:20px;*/
+/*  margin-left:20px;*/
+/* }*/
+
+/*.list-group-item-text {*/
+/*  clear:left;*/
+/*  height:25px;*/
+/*  margin-top:20px;*/
+/*  margin-right:20px;*/
+/*  margin-bottom:20px;*/
+/*  margin-left:20px;*/
+/* }*/
